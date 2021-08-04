@@ -1,0 +1,30 @@
+commit 8eac3f753be020966312751b0b99403f9b33739a
+Merge: 007bc2d 6b97d8e
+Author: Bex <88397003+gitbexdevops@users.noreply.github.com>
+Date:   Wed Aug 4 13:41:11 2021 +0500
+
+    Merge branch 'development' into GITBEXDEVOPS-new_feature
+
+commit 007bc2d129ea3964926cf4d9a2aef6e324817e3f
+Author: Bekhruz Mirrakhimov <bexruz@gmail.com>
+Date:   Wed Aug 4 13:32:01 2021 +0500
+
+    update: text for readme
+
+commit 6b97d8ea9a5cdd871c54bbed992785e6f8c5b278
+Author: Bekhruz Mirrakhimov <bexruz@gmail.com>
+Date:   Wed Aug 4 13:30:01 2021 +0500
+
+    update: enter to file new info
+
+commit 5ac24c192b0e2a8f2e5c014299b6133fea846341
+Author: Bekhruz Mirrakhimov <bexruz@gmail.com>
+Date:   Wed Aug 4 08:18:47 2021 +0500
+
+    add:readme
+
+commit aafa5321f96fc8d7a3cf4ae77a27a33c8c9ecb67
+Author: Bekhruz Mirrakhimov <bexruz@gmail.com>
+Date:   Wed Aug 4 07:56:40 2021 +0500
+
+    first commit
