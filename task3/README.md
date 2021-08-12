@@ -7,3 +7,9 @@ On EC2 Ubuntu, install a web server (nginx/apache);
 a web page with the text “Hello World” and information about the current version of the operating system. This page visible from the Internet.
 
 On EC2 Ubuntu installed Docker
+
+
+  access_key = "AKIA42EP5ORU7TTGR5QV"
+  secret_key = "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"
+  
+  this is access keys above
