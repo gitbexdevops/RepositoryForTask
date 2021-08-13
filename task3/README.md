@@ -9,7 +9,7 @@ a web page with the text “Hello World” and information about the current ver
 On EC2 Ubuntu installed Docker
 
 
-  access_key = "AKIA42EP5ORU7TTGR5QV"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
   
   this is access keys above
