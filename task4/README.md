@@ -63,4 +63,8 @@ The script ``install-docker.sh`` contain list of commands:
 ### 5. Docker-compose file docker-compose.yml. Deploy a few docker containers via one docker-compose file.  
   
 ###### Tomcat application which uses mysql database
+###### Install Compose on Linux  
   
+``sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose``  
+###### Run Compose  
+``docker-compose up -d``
