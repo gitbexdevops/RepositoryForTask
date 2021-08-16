@@ -24,7 +24,7 @@ on:
           tags: latest, ${{ github.run_number}}
       - name: Publish to Docker Git Hub
         uses: docker/build-push-action@v1
-         with:
+        with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           repository: mynginx_image1/next
