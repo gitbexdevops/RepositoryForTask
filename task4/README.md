@@ -31,7 +31,7 @@ The script ``install-docker.sh`` contain list of commands:
 
 ``EXPOSE 80``  
   
-``CMD /root/run_apache.sh``  
+``CMD /root/d243a466-00b2-4f1f-92a9-b0260903ba92/run_apache.sh``  
 ###### To run script build the Docker image from your Dockerfile.  
 ``docker build -t hello-world .``  
 ###### Run the newly built image. 
