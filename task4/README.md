@@ -53,4 +53,11 @@ The script ``install-docker.sh`` contain list of commands:
 ``docker build -t mynginx_image1 .``  
  ###### Start a new container.  
 ``docker run --name mynginx -p 80:80 -d mynginx_image1``  
+  
+### 4.  Push your docker image to docker hub (https://hub.docker.com/).
+  
+ ``docker login``  
+ ``docker tag mynginx_image1 bexruz/mynginx_image1``  
+ ``docker push bexruz/mynginx_image1``  
+  
 
