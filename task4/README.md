@@ -56,8 +56,8 @@ The script ``install-docker.sh`` contain list of commands:
   
 ### 4.  Push your docker image to docker hub (https://hub.docker.com/).
   
- ``docker login``
- ``docker tag mynginx_image1 bexruz/mynginx_image1`` 
- ``docker push bexruz/mynginx_image1`` 
+ ``docker login``  
+ ``docker tag mynginx_image1 bexruz/mynginx_image1``  
+ ``docker push bexruz/mynginx_image1``  
   
 
