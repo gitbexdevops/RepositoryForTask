@@ -60,4 +60,7 @@ The script ``install-docker.sh`` contain list of commands:
  ``docker tag mynginx_image1 bexruz/mynginx_image1``  
  ``docker push bexruz/mynginx_image1``  
   
-
+### 5. Docker-compose file docker-compose.yml. Deploy a few docker containers via one docker-compose file.  
+  
+###### Tomcat application which uses mysql database
+  
