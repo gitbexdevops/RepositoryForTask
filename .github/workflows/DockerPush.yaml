@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Login to Docker Hub
-        user: actions/checkout@v2
+      - user: actions/checkout@v2
       - name: Publish to GitHub Packages
-        uses: docker/build-push-action@v1
+      - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
@@ -20,7 +20,7 @@ jobs:
           repository: ${{ github.repository }}/next
           tags: latest, ${{ github.run_number}}
       - name: Publish to Docker Git Hub
-        uses: docker/build-push-action@v1
+      - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
