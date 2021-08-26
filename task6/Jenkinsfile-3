@@ -1,15 +1,18 @@
-
 pipeline {
- agent {label 'agent1'}
-  agent { dockerfile true }
+  agent {
+    dockerfile {
+      customWorkspace '/test'
+      filename 'Dockerfile'
+    }
+  }
   stages {
-    stage('Test') {
+    stage('Compile static assets') {
       steps {
-        sh '''
-          node --version
-          git --version
-          curl --version
-        '''
+        sh 'node --version'
+        sh 'npm --version'
+        sh 'pwd'
+        sh 'ls'
+        sh 'npm run build'
       }
     }
   }
