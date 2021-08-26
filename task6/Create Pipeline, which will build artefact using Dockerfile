@@ -1,0 +1,19 @@
+pipeline {
+  agent {
+    dockerfile {
+      filename 'task6/Dockerfile'
+    }
+  }
+  stages {
+    stage('Compile ') {
+      steps {
+        sh 'node --version'
+        sh 'npm --version'
+        sh 'pwd'
+        sh 'ls'
+        sh 'git --version'
+        sh 'curl --version'
+      }
+    }
+  }
+}
