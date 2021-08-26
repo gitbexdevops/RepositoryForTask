@@ -1,12 +1,11 @@
 pipeline {
   agent {
     dockerfile {
-      customWorkspace '/test'
       filename 'Dockerfile'
     }
   }
   stages {
-    stage('Compile static assets') {
+    stage('Compile ') {
       steps {
         sh 'node --version'
         sh 'npm --version'
