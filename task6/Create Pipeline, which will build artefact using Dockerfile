@@ -13,6 +13,7 @@ pipeline {
         sh 'ls'
         sh 'git --version'
         sh 'curl --version'
+        archiveArtifacts artifacts: '**/home/jenkins/*.jar', fingerprint: true
       }
     }
   }
