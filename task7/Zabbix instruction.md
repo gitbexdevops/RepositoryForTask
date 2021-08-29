@@ -27,7 +27,7 @@ Edit file /etc/zabbix/nginx.conf, uncomment and set 'listen' and 'server_name' d
 ` # systemctl restart zabbix-server zabbix-agent nginx php7.4-fpm`  
 ` # systemctl enable zabbix-server zabbix-agent nginx php7.4-fpm`  
 ##### Connect to newly installed Zabbix frontend: http://18.222.215.7:8080/
-##### Temporarily chmod 777 access need to be granted to doawload directory folder
+##### Temporarily chmod 777 access need to be granted to download directory folder
 ##### Adding host  
 *Configuration → Hosts → Create host.*  
 **Host name** = New-Test-Host  
