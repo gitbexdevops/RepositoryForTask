@@ -1,0 +1,14 @@
+input {
+  beats {
+    port => 5044
+    ssl => false
+  }
+}
+
+output {
+    elasticsearch {
+      hosts => ["localhost:9200"]
+      index => "docker-%{+YYYY.MM.dd}"
+    }
+
+  }
