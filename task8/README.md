@@ -9,6 +9,6 @@
 ##### change directory to dowloaded folder   
 `cd RepositoryForTask-task8.git`  
 ##### run commands to deploy containers  
-`bin/setup`
+`bin/setup`  
 `docker network create reaction.localhost`  
-`docker-compose up -d`    
+`docker-compose up -d`  
