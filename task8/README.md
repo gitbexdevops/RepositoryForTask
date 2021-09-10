@@ -58,7 +58,7 @@
  
 6 - Mongodb backup job run once a day  
  > Freestyle project  
- > Restrict where this project can be run = agent1 Label Expression  
+ > Restrict where this project can be run = `agent1` Label Expression  
  > Build Triggers => Build periodically => Schedule = `15 00 * * *`  
- > Build => Execute shell => Command = sudo docker exec a21c487533aa mongodump -out/backup_mongo/
+ > Build => Execute shell => Command = `sudo docker exec a21c487533aa mongodump -out/backup_mongo/`  
  > Save  
