@@ -44,11 +44,14 @@
  `   }`  
 `}`  
 
-5 - Integrate GitHub with Jenkins  
+5 - Setting Up Github Webhooks, Jenkins, and Ngrok for Local Development  
+ >  https://ngrok.com/ and signup for an account  
+ >  run the following `./ngrok http 8080` on extract dir  
+ >  copy Forwarding adrress `http://***********.ngrok.io` 
  >  GitHub => RepositoryForTask-task8 => Settings => Webhooks  
  >  Add webhooks  
- >  Payload URL = `http://fd62-84-54-93-61.ngrok.io/github-webhook/`  
+ >  Payload URL = `http://***********.ngrok.io/github-webhook/`  
  >  Content type = `application/json`  
  >  Which events would you like to trigger this webhook? = `Just the push event.`  
  >  Enable `Active`  
-
+ >  Press Update webhook  
