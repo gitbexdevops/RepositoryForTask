@@ -63,3 +63,8 @@
  > + Build Triggers => Build periodically => Schedule = `15 00 * * *`  
  > + Build => Execute shell => Command = `sudo docker exec a21c487533aa mongodump -out/backup_mongo/`  
  > + Save  
+
+7 - Install and rung Zabbix for monitoring  
+> + Install Zabbix from official Zabbix webisite for Ubuntu 20.04 system
+> + Restart zabbix and nginx servers
+> + Complete Frontend installation
