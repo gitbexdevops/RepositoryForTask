@@ -83,6 +83,19 @@
 > + kubectl apply -f output  
 > + kubectl get pods  
 > + kubectl get service cluster-1  
-> 
 
+9 - Push Docker images to Google container registry  
+> + Open Google cloud Powershel terminal where Google project created  
+> + git clone required repostiroy https://github.com/gitbexdevops/RepositoryForTask-task8  
+> + bin/setup  
+> + docker-compose up -d  
+> + Docker images are created now Tag them to Push to Google cloud container registry  
+> + docker image ls  
+> + `eactioncommerce/reaction   4.0.0     65bb0d99e960   2 weeks ago     700MB`  
+> + `mongo                       4.2.0     5255aa8c3698   23 months ago   361MB`  
+> + `docker tag reactioncommerce/reaction:4.0.0 gcr.io/august-strata-325411/reaction-gcr:latest`
+> + `docker tag mongo:4.2.0 gcr.io/august-strata-325411/mongo-gcr` 
+> + `docker push gcr.io/august-strata-325411/reaction-gcr`  
+> + `docker push gcr.io/august-strata-325411/mongo-gcr`  
+> + Google cloud container registy should containe images  
 
