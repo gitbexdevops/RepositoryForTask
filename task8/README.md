@@ -67,4 +67,22 @@
 7 - Install and rung Zabbix for monitoring  
 > + Install Zabbix from official Zabbix webisite for Ubuntu 20.04 system
 > + Restart zabbix and nginx servers
-> + Complete Frontend installation
+> + Complete Frontend installation  
+
+8 - Deploy application on Google Kuberates cloud  
+> + gcloud config set project My First Project  
+> + gcloud config set compute/zone s-west1-a  
+> + gcloud config set compute/region us-west1  
+> + gcloud container clusters create cluster-1 --num-nodes=1  
+> + gcloud container clusters get-credentials cluster-1  
+##### Instal Kopose to google cloud to convert docker compose to Kubernetes yaml file
+> + curl -L https://github.com/kubernetes/kompose/releases/download/v1.24.0/kompose-linux-amd64 -o kompose  
+> + chmod +x kompose  
+> + sudo mv ./kompose /usr/local/bin/kompose  
+> + kompose convert output  
+> + kubectl apply -f output  
+> + kubectl get pods  
+> + kubectl get service cluster-1  
+> 
+
+
