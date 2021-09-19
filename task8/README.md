@@ -69,6 +69,8 @@
 > + Restart zabbix and nginx servers
 > + Complete Frontend installation  
 
+### Next steps migrating our appliation into Google Kubernetes Engine  
+
 8 - Deploy application on Google Kuberates cloud  
 > + gcloud config set project My First Project  
 > + gcloud config set compute/zone s-west1-a  
@@ -83,6 +85,7 @@
 > + kubectl apply -f output  
 > + kubectl get pods  
 > + kubectl get service cluster-1  
+*This option helped me in building Deployment YAML file.*  
 
 9 - Push Docker images to Google container registry  
 > + Open Google cloud Powershel terminal where Google project created  
@@ -98,4 +101,84 @@
 > + `docker push gcr.io/august-strata-325411/reaction-gcr`  
 > + `docker push gcr.io/august-strata-325411/mongo-gcr`  
 > + Google cloud container registy should containe images  
+
+10 - Create YAML file for deploying and expose to internet  
+> + Google Cloud Platform
+> + Kubernetes Engine  
+> + Clusters  
+> + Create  
+> + GKE Standard => Configure  
+> + Create  
+> + Open Shell Terminal  
+> + `git clone https://github.com/gitbexdevops/RepositoryForTask-task8.git`  
+> + `cd RepositoryForTask-task8.git`  
+> + Create deployment.yaml file
+``` YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+        app: reaction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       app: reaction
+  template:
+    metadata:
+      labels:
+        app: reaction
+    spec:
+      containers:
+      - name: reaction-gcr
+        image: gcr.io/august-strata-325411/reaction-gcr
+        env:
+          - name: STRIPE_API_KEY
+            value: YOUR_PRIVATE_STRIPE_API_KEY
+          - name: MONGO_URL
+            value: mongodb://localhost:27017/reaction
+          - name: ROOT_URL
+            value: http://localhost:3000
+        ports:
+        - containerPort: 3000
+      - name: mongo-gcr
+        image: gcr.io/august-strata-325411/mongo-gcr
+        ports:
+            - containerPort: 27017
+        args:
+            - mongod
+            - --oplogSize
+            - "128"
+            - --replSet
+            - rs0
+            - --storageEngine=wiredTiger
+        livenessProbe:
+            exec:
+              command:
+                - test $(echo "rs.status().ok || rs.initiate().ok" | mongo --quiet) -eq 1
+            initialDelaySeconds: 30
+            periodSeconds: 10
+        resources: {}
+        volumeMounts:
+            - mountPath: /data/db
+              name: mongo-db4
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      volumes:
+        - name: mongo-db4
+          persistentVolumeClaim:
+            claimName: mongo-db4
+status: {}
+```  
+> + `kubectl apply -f deploy.yaml`  
+> + `kubectl get pods`  
+> + `kubectl get pods -o wide`  
+> + `kubectl describe deployment webapp-deployment`  
+> + `kubectl logs -f webapp-deployment-68c787b9d4-8fnvp reaction-gcr` -- container one application logs  
+> + `kubectl logs -f webapp-deployment-68c787b9d4-8fnvp mongo-gcr` -- container two mongodb logs  
+> + `kubectl expose deployment webapp-deployment --type LoadBalancer --port 80 --target-port 3000` -- expose our appliation to the internet  
+> + `kubectl get services` -- EXTERNAL-IP is IP addres for connecting to our app from internet  
+> + http://34.132.206.13/graphql  
 
