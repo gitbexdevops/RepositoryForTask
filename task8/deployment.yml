@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+        app: reaction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       app: reaction
+  template:
+    metadata:
+      labels:
+        app: reaction
+    spec:
+      containers:
+      - name: reaction-gcr
+        image: gcr.io/august-strata-325411/reaction-gcr
+        env:
+          - name: STRIPE_API_KEY
+            value: YOUR_PRIVATE_STRIPE_API_KEY
+          - name: MONGO_URL
+            value: mongodb://localhost:27017/reaction
+          - name: ROOT_URL
+            value: http://localhost:3000
+        ports:
+        - containerPort: 3000
+      - name: mongo-gcr
+        image: gcr.io/august-strata-325411/mongo-gcr
+        ports:
+            - containerPort: 27017
+        args:
+            - mongod
+            - --oplogSize
+            - "128"
+            - --replSet
+            - rs0
+            - --storageEngine=wiredTiger
+        livenessProbe:
+            exec:
+              command:
+                - test $(echo "rs.status().ok || rs.initiate().ok" | mongo --quiet) -eq 1
+            initialDelaySeconds: 30
+            periodSeconds: 10
+        resources: {}
+        volumeMounts:
+            - mountPath: /data/db
+              name: mongo-db4
+      restartPolicy: Always
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      volumes:
+        - name: mongo-db4
+          persistentVolumeClaim:
+            claimName: mongo-db4
+status: {}
