@@ -65,7 +65,7 @@ jobs:
    #       --build-arg GITHUB_REF="$GITHUB_REF" \
    #       . 
     - name: Tag1
-      run: docker tag mongo:4.2.0 gcr.io/august-strata-325411/mongo-gcr:$GITHUB_SHA
+      run: docker tag mongo gcr.io/august-strata-325411/mongo-gcr:$GITHUB_SHA
     - name: Tag2
       run: docker push gcr.io/august-strata-325411/reaction-gcr:$GITHUB_SHA
     # Push the Docker image to Google Container Registry
