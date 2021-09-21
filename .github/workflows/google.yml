@@ -55,7 +55,7 @@ jobs:
 
     # Build the Docker image
     - name: Build
-      run: docker-compose -f ./RepositoryForTask/Task8/docker-compose.yml build
+      run: docker-compose -f ./RepositoryForTask/blob/main/task8/deployment.yml build
   #      docker build \
   #        --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
   #        --build-arg GITHUB_SHA="$GITHUB_SHA" \
