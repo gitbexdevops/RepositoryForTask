@@ -61,11 +61,14 @@ jobs:
       run: |-
         docker network create reaction.localhost
         docker-compose -f /home/runner/work/RepositoryForTask/RepositoryForTask/task8/docker-compose.yml up -d
+        docker ps
+        docker ps -a
   #      docker build \
   #        --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
   #        --build-arg GITHUB_SHA="$GITHUB_SHA" \
    #       --build-arg GITHUB_REF="$GITHUB_REF" \
    #       . 
+
     - name: Tag1
       run: docker tag mongo gcr.io/august-strata-325411/mongo-gcr:$GITHUB_SHA
     - name: Tag2
