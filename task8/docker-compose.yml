@@ -1,4 +1,3 @@
-#test commit
 version: "3.4"
 
 networks:
@@ -29,7 +28,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo-db4:/data/db
-    healthcheck: # re-run rs.initiate() after startup if it failed.
+    healthcheck:
      test: test $$(echo "rs.status().ok || rs.initiate().ok" | mongo --quiet) -eq 1
       interval: 10s
       start_period: 30s
