@@ -47,6 +47,7 @@ jobs:
         gcloud --quiet auth configure-docker
         pwd
         hostname
+        ls /home/runner/work/RepositoryForTask/RepositoryForTask/
 
     # Get the GKE credentials so we can deploy to the cluster
     - uses: google-github-actions/get-gke-credentials@v0.2.1
