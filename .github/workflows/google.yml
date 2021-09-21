@@ -90,7 +90,7 @@ jobs:
     - name: Deploy
       run: |-
         pwd
-        kubectl apply -f /home/runner/work/RepositoryForTask/RepositoryForTask/task8/deploy.yaml
+        kubectl apply -f /home/runner/work/RepositoryForTask/RepositoryForTask/task8/deployment.yaml
         kubectl get pods -o wide
         hostname
    #     ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
